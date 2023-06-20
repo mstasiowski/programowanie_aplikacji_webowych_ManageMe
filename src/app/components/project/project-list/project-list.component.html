@@ -1,1 +1,32 @@
-<p>project-list works!</p>
+<p>Lista projektów:</p>
+
+<table>
+    <tr>
+    <th>Key</th>
+    <th>Nazwa</th>
+    <th></th>
+    <th>Opcje</th>
+    <th></th>
+    </tr>
+
+    <tr *ngFor="let p of projects; let i= index">
+        
+            <td><strong>{{p.lsKeyName}}: </strong></td>
+            <td>{{p.name}}</td>
+            <td><button (click)="deleteProject(p.lsKeyName)">usuń</button></td>
+            <td><button routerLink="/projects/edit/{{p.lsKeyName}}">edytuj</button></td>
+            <td><button routerLink="/projects/details/{{p.lsKeyName}}">szczegóły</button></td>
+    
+
+    </tr>
+</table>
+<a [routerLink]="['/projects/add']">dodaj nowy projekt</a><br><br>
+
+<button [routerLink]="['/nav']">powrót</button>
+
+
+<br>
+<br>
+<br>
+<app-active-project></app-active-project>
+

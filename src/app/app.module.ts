@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProjectAddComponent } from './components/project/project-add/project-add.component';
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
@@ -18,6 +18,8 @@ import { TaskDetailsComponent } from './components/task/task-details/task-detail
 import { TaskEditComponent } from './components/task/task-edit/task-edit.component';
 import { TaskListComponent } from './components/task/task-list/task-list.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { PageErrorComponent } from './components/page-error/page-error.component';
+import { ActiveProjectComponent } from './components/active-project/active-project.component';
 
 
 @NgModule({
@@ -36,11 +38,15 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     TaskEditComponent,
     TaskListComponent,
     NavigationComponent,
+    PageErrorComponent,
+    ActiveProjectComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

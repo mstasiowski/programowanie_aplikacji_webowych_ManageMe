@@ -1,1 +1,33 @@
-<p>task-list works!</p>
+
+<h2>Lista zadań:</h2>
+
+<table>
+    <tr>
+    <th>Nazwa funkcji</th>
+    <th>Zadanie</th>
+    <th>Status</th>
+    <th></th>
+    <th>Opcje</th>
+    <th></th>
+    </tr>
+
+    <tr *ngFor="let task of tasks; let i= index">
+     
+        <ng-container *ngIf="task.projectKeyName == activeProjectKey" >
+            <td><strong>{{task.funcName}}</strong></td>
+            <td>{{task.name}}</td>
+            <td>{{task.status}}</td>
+            <td><button (click)="deleteTask(task.lsKeyName)">usuń</button></td>
+            <td><button (click)="changeTaskStatus(task.lsKeyName, task.name, task.description, task.priority,task.status, task.funcName)">zmień status</button></td>
+            <td><button routerLink="/task/edit/{{task.lsKeyName}}">edytuj</button></td>
+            <td><button routerLink="/task/details/{{task.lsKeyName}}">szczegóły</button></td>
+        </ng-container>
+     
+    </tr>
+
+    
+</table><br>
+
+<a [routerLink]="['/task/add']">dodaj nowe zadanie</a><br><br>
+
+<button [routerLink]="['/nav']">powrót</button>

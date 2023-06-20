@@ -1,1 +1,31 @@
-<p>functionality-add works!</p>
+<p>Stwórz funkcjonalność</p>
+
+<form [formGroup]="addFunctionalityForm" (ngSubmit)="createFunctionality()">
+    <label>Nazwa funkcjonalności: </label>
+    <input type="text" placeholder="wpisz nazwe" formControlName="funcName"><br><br>
+
+    <label>Opis funkcjonalności: </label>
+    <input type="text" placeholder="wpisz opis" formControlName="funcDesc"><br><br>
+
+    <label>Priorytet: </label>
+    <!-- <input type="text" placeholder="low, medium, high" formControlName="funcPriority"> -->
+    <select formControlName="funcPriority" >
+        <option value="" disabled>Wybierz</option>
+        <option [value]="priorityLow">{{[priorityLow]}}</option>
+        <option [value]="priorityMedium">{{priorityMedium}}</option>
+        <option [value]="priorityHigh">{{priorityHigh}}</option>
+    </select><br><br>
+
+    <label>Status: </label>
+    <!-- <input type="text" placeholder="to do, doing, done" formControlName="funcStatus"><br><br> -->
+    <select formControlName="funcStatus" >
+        <option value="" disabled>Wybierz</option>
+        <option [value]="statusToDo">{{statusToDo}}</option>
+        <option [value]="statusDoing">{{statusDoing}}</option>
+        <option [value]="statusDone">{{statusDone}}</option>
+    </select><br><br>
+
+    <input type="submit" value="Dodaj funkcje" >
+</form><br>
+<button [routerLink]="['/functionalities']">powrót</button>
+

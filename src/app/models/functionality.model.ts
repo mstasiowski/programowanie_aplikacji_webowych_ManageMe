@@ -1,11 +1,11 @@
 
 
 export type Functionality = {
-  localStorageName: string | undefined;
+  lsKeyName: string | undefined;
   name: string | undefined;
   description: string | undefined;
   priority: string | undefined;
   status: string | undefined;
-  projectName: string | undefined;
-  ownerName: string | undefined;
+  projectKey: string | undefined;
+  ownerKey: string | undefined;
 }

@@ -1,1 +1,13 @@
-<p>project-edit works!</p>
+<p>Edytuj projekt: {{project.lsKeyName}} </p>
+
+<form [formGroup]="editProjectForm" (ngSubmit)="editProject()">
+    <label>Nazwa projektu: </label>
+    <input type="text"  formControlName="projectName"><br><br>
+
+    <label>Opis projektu: </label>
+    <input type="text"  formControlName="projectDesc"><br><br>
+
+    <input type="submit" value="zapisz" >
+</form><br>
+
+<button [routerLink]="['/projects']">powrót</button>

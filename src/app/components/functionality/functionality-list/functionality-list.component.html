@@ -1,1 +1,39 @@
-<p>functionality-list works!</p>
+
+<h2>Lista funkcjonalności:</h2>
+
+<table>
+    <tr>
+    <th>Key</th>
+    <th>Nazwa</th>
+    <th>Status</th>
+    <th></th>
+    <th>Opcje</th>
+    <th></th>
+    </tr>
+
+    <tr *ngFor="let f of functionalities; let i= index">
+     <!-- <div *ngFor="let f of functionalities; let i= index">
+        <div *ngIf="f.projectKey == activeProjectKey" >
+            <td><strong>lsKey:{{f.lsKeyName}}: </strong></td>
+            <td>{{f.name}}</td>
+            <td>{{f.status}}</td>
+            <td><button (click)="deleteFunc(f.lsKeyName)">usuń</button></td>
+            <td><button routerLink="/func/edit/{{f.lsKeyName}}">edytuj</button></td>
+            <td><button routerLink="/func/details/{{f.lsKeyName}}">szczegóły</button></td>
+        </div>
+     </div> -->
+     
+        <ng-container *ngIf="f.projectKey == activeProjectKey" >
+            <td><strong>lsKey:{{f.lsKeyName}}: </strong></td>
+            <td>{{f.name}}</td>
+            <td>{{f.status}}</td>
+            <td><button (click)="deleteFunc(f.lsKeyName)">usuń</button></td>
+            <td><button routerLink="/func/edit/{{f.lsKeyName}}">edytuj</button></td>
+            <td><button routerLink="/func/details/{{f.lsKeyName}}">szczegóły</button></td>
+        </ng-container>
+    </tr>
+    
+</table><br>
+
+<a [routerLink]="['/func/add']">dodaj nową funkcjonalność</a><br><br>
+<button [routerLink]="['/nav']">powrót</button>

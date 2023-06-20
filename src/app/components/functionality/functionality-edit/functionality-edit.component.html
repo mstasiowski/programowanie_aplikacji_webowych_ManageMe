@@ -1,1 +1,32 @@
-<p>functionality-edit works!</p>
+
+<p>Edytuj funkcjonalności</p>
+
+<form [formGroup]="editFunctionalityForm" (ngSubmit)="editFunctionality()">
+    <label>Nazwa funkcjonalności: </label>
+    <input type="text" placeholder="wpisz nazwe" formControlName="funcName"><br><br>
+
+    <label>Opis funkcjonalności: </label>
+    <input type="text" placeholder="wpisz opis" formControlName="funcDesc"><br><br>
+
+    <label>Priorytet: </label>
+    
+    <select formControlName="funcPriority" >
+        <option value="" disabled>Wybierz</option>
+        <option [value]="priorityLow">{{[priorityLow]}}</option>
+        <option [value]="priorityMedium">{{priorityMedium}}</option>
+        <option [value]="priorityHigh">{{priorityHigh}}</option>
+    </select><br><br>
+
+    <label>Status: </label>
+
+    <select formControlName="funcStatus" >
+        <option value="" disabled>Wybierz</option>
+        <option [value]="statusToDo">{{statusToDo}}</option>
+        <option [value]="statusDoing">{{statusDoing}}</option>
+        <option [value]="statusDone">{{statusDone}}</option>
+    </select><br><br>
+
+    <input type="submit" value="zapisz funkcje" >
+</form><br>
+<button [routerLink]="['/functionalities']">powrót</button>
+

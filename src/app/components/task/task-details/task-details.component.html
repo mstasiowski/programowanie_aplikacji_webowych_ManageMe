@@ -1,1 +1,13 @@
-<p>task-details works!</p>
+<h3>Szczegóły do zadania: {{task.lsKeyName}}</h3><br>
+<p>Nazwa zadania: {{task.name}}</p>
+<p>Opis zadania: {{task.description}}</p>
+<p>Priorytet: {{task.priority}}</p>
+<p>Status: {{task.status}}</p>
+<p>Nazwa funkcji: {{task.funcName}}</p>
+<p>Key projektu: {{task.projectKeyName}}</p>
+
+
+
+
+<button [routerLink]="['/tasks']">powrót </button>
+

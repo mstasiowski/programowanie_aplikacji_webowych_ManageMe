@@ -1,1 +1,6 @@
-<p>project-details works!</p>
+<h3>Szczegóły do projektu: {{project.lsKeyName}}</h3><br>
+<p>Nazwa projektu: {{project.name}}</p>
+<p>Opis projektu: {{project.description}}</p>
+<button (click)="setAsActive()">ustaw jako aktywny projekt</button><br><br>
+<button [routerLink]="['/projects']">powrót </button>
+

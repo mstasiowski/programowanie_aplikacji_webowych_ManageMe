@@ -1,1 +1,12 @@
-<p>project-add works!</p>
+<p>Stwórz projekt</p>
+
+<form [formGroup]="addProjectForm" (ngSubmit)="createProject()">
+    <label>Nazwa projektu: </label>
+    <input type="text" placeholder="nazwe dla nowego projektu" formControlName="projectName"><br><br>
+
+    <label>Opis projektu: </label>
+    <input type="text" placeholder="opis do nowego projektu" formControlName="projectDesc"><br><br>
+
+    <input type="submit" value="Dodaj projekt" >
+</form>
+<button [routerLink]="['/projects']">powrót</button>

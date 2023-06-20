@@ -1,1 +1,52 @@
-<p>task-edit works!</p>
+<p>Edytuj zadanie</p>
+
+<form [formGroup]="editTaskForm" (ngSubmit)="editTask()">
+    <label>Nazwa zadania: </label>
+    <input type="text" placeholder="wpisz nazwe" formControlName="taskName"><br><br>
+
+    <label>Opis zadania: </label>
+    <input type="text" placeholder="wpisz opis" formControlName="taskDesc"><br><br>
+
+
+    <label>funkcjonalność: </label>
+    <select formControlName="taskFuncName" >
+        <option value="" disabled>Wybierz</option>
+         
+     
+   <ng-container *ngFor="let func of functionalities; let i= index">
+
+    <option  *ngIf="activeProjectKey === func.projectKey"   [value]="func.name"> 
+        {{func.name}}
+    </option>
+   </ng-container>
+
+
+        <!-- <option *ngFor="let func of functionalities; let i= index"   [value]="func.name"> 
+            {{func.name}}
+        </option> -->
+      
+
+    </select><br><br>
+
+
+    <label>Priorytet: </label>
+
+    <select formControlName="taskPriority" >
+        <option value="" disabled>Wybierz</option>
+        <option [value]="priorityLow">{{[priorityLow]}}</option>
+        <option [value]="priorityMedium">{{priorityMedium}}</option>
+        <option [value]="priorityHigh">{{priorityHigh}}</option>
+    </select><br><br>
+
+    <label>Status: </label>
+    <select formControlName="taskStatus" >
+        <option value="" disabled>Wybierz</option>
+        <option [value]="statusToDo">{{statusToDo}}</option>
+        <option [value]="statusDoing">{{statusDoing}}</option>
+        <option [value]="statusDone">{{statusDone}}</option>
+    </select><br><br>
+
+    <input type="submit" value="zapisz zadanie" >
+</form><br>
+<button [routerLink]="['/tasks']">powrót</button>
+

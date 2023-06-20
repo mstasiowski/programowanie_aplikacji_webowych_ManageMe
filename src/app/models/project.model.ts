@@ -1,6 +1,6 @@
 
 export type Project = {
- localStorageName: string | undefined;
+ lsKeyName: string | undefined;
  name: string | undefined;
  description: string | undefined;
  isActive: boolean | undefined;
