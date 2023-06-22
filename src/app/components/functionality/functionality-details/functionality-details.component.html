@@ -8,7 +8,6 @@
 
 <table>
     <tr>
-        <th>Nr</th>
         <th>Zadanie</th>
         <th>Status</th>
     </tr>
@@ -16,7 +15,6 @@
     <tr *ngFor="let task of tasks;let i = index">
     
         <ng-container *ngIf="task.projectKeyName ===activeProjectKey && task.funcKeyName == funcKey">
-            <td><strong>{{i+1}}</strong></td>
             <td>{{task.name}}</td>
             <td>{{task.status}}</td>
         </ng-container>
