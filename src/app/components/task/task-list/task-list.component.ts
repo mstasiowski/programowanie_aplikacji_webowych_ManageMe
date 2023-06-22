@@ -30,6 +30,13 @@ constructor(private ProjectService:ProjectService, private FunctionalityService:
 
     // console.log(`Aktywny projekt:${this.activeProjectKey}`)
     // console.log(`nazwa projektu z tasków:${this.tasks[0].projectKeyName}`)
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'localStorageKey') {
+        this.tasks;
+      }
+    });
+
+
   }
 
   functionalities:Array<Functionality> =[];

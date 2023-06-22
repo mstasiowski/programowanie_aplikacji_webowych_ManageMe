@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project.service';
 
@@ -11,6 +11,7 @@ import { ProjectService } from 'src/app/services/project.service';
 export class ProjectListComponent implements OnInit,DoCheck{
 
 constructor(private ProjectService: ProjectService) {}
+ 
   ngDoCheck(): void {
   this.projects= this.ProjectService.getProjects();
     
@@ -18,7 +19,17 @@ constructor(private ProjectService: ProjectService) {}
   ngOnInit(): void {
   this.projects= this.ProjectService.getProjects();
     
+    // nasłuchiwanie zdarzenia storage
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'localStorageKey') {
+        this.projects;
+      }
+    });
+
+
   }
+
+  
 
 projects:Array<Project> = [];
 

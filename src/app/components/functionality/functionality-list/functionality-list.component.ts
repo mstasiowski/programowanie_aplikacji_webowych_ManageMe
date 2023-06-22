@@ -16,10 +16,18 @@ constructor(private FunctionalityService: FunctionalityService, private ProjectS
   ngDoCheck(): void {
     this.functionalities = this.FunctionalityService.getFunctionalities();
     this.TaskService.verifyFuncStatus();
+
+   
   }
   ngOnInit(): void {
     this.functionalities = this.FunctionalityService.getFunctionalities();
     this.TaskService.verifyFuncStatus();
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'localStorageKey') {
+        this.functionalities;
+      }
+    });
     
   }
 
