@@ -6,7 +6,21 @@
 <p>Key projektu: {{functionality.projectKey}}</p>
 <p>Właściciel: {{functionality.ownerKey}}</p>
 
+<table>
+    <tr>
+        <th>Zadanie</th>
+        <th>Status</th>
+    </tr>
 
+    <tr *ngFor="let task of tasks">
+    
+        <ng-container *ngIf="task.projectKeyName ===activeProjectKey && task.funcKeyName == funcKey">
+            <td>{{task.name}}</td>
+            <td>{{task.status}}</td>
+        </ng-container>
+    
+    </tr>
+</table>
 
 
 <button [routerLink]="['/functionalities']">powrót </button>
