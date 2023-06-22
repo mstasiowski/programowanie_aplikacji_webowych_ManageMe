@@ -62,6 +62,6 @@ export class FunctionalityAddComponent {
     let funcStatus:string = this.addFunctionalityForm.controls.funcStatus.value ?? '';
 
     this.FunctionalityService.addFunctionality(funcName, funcDesc, funcPriority, funcStatus,this.activeProjectKey);
-    console.log(funcPriority);
+    // console.log(funcPriority);
   }
 }

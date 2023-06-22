@@ -176,6 +176,11 @@ verifyFuncStatus()
     const functionality:any = functionalities[i];
     const tasks = this.getTasksByFuncName(functionality.lsKeyName);
 
+    if(tasks.length === 0)
+    {
+      continue;
+    }
+
     let allTasksDone = true;
     let allTasksTodo = true;
 
