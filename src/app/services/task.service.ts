@@ -286,4 +286,19 @@ DeleteAllTaskForFunc(funcLsKeyName:string)
 
 }
 
+
+checkFuncNameChange(oldFuncName: string, newFuncName: string) {
+  let tasks: Array<Task> = this.getTasks();
+
+  tasks.forEach(task => {
+    if (task.funcName === oldFuncName) {
+      task.funcName = newFuncName;
+      task.funcKeyName = this.FunctionalityService.getFuncByFuncName(newFuncName)?.lsKeyName;
+  
+      let task_serialized = JSON.stringify(task);
+      localStorage.setItem(task.lsKeyName!, task_serialized);
+    }
+  });
+}
+
 }

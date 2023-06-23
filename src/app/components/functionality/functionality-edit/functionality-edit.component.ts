@@ -6,6 +6,7 @@ import { Priority } from 'src/app/enums/priority';
 import { Status } from 'src/app/enums/status';
 import { Functionality } from 'src/app/models/functionality.model';
 import { ActivatedRoute } from '@angular/router';
+import { TaskService } from 'src/app/services/task.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FunctionalityEditComponent {
 
-  constructor(private FunctionalityService: FunctionalityService, private ProjectService: ProjectService, private activatedRoute: ActivatedRoute) {
+  constructor(private FunctionalityService: FunctionalityService, private ProjectService: ProjectService,private TaskService:TaskService, private activatedRoute: ActivatedRoute) {
   }
 
   funcKey:any;
@@ -68,6 +69,11 @@ export class FunctionalityEditComponent {
     let funcStatus: string = this.editFunctionalityForm.controls.funcStatus.value ?? '';
 
     this.FunctionalityService.editFunc(funcName,funcDesc,funcPriority,funcStatus,this.activeProjectKey,lsKeyName);
+
+    const oldFuncName = this.func.name;
+    const newFuncName = funcName;
+    
+    this.TaskService.checkFuncNameChange(oldFuncName, newFuncName);
 
   }
 }
