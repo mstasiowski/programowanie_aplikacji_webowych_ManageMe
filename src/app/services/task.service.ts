@@ -274,4 +274,16 @@ createDefaultTask()
 }
 
 
+DeleteAllTaskForFunc(funcLsKeyName:string)
+{
+  let tasks:Array<Task> = this.getTasksByFuncName(funcLsKeyName);
+
+  tasks.forEach(t => {
+    let task:any = t.lsKeyName;
+    this.deleteTask(task)
+    console.log(task);
+  });
+
+}
+
 }

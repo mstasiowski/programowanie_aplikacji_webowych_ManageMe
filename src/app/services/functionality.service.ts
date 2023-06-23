@@ -167,8 +167,7 @@ deleteFunctionality(lsKeyName: string)
 {
   
   localStorage.removeItem(this.getFuncByLsKeyName(lsKeyName));
-
-
+  
 }
 
 

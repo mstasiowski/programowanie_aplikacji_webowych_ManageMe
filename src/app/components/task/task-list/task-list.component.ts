@@ -36,7 +36,7 @@ constructor(private ProjectService:ProjectService, private FunctionalityService:
       }
     });
 
-
+    
   }
 
   functionalities:Array<Functionality> =[];
@@ -47,6 +47,7 @@ constructor(private ProjectService:ProjectService, private FunctionalityService:
   deleteTask(lsKeyName:any)
   {
     this.TaskService.deleteTask(lsKeyName);
+
   }
 
   changeTaskStatus(lsKeyName:any, name:any, description:any, priority:any, status:any, funcName:any)

@@ -38,6 +38,8 @@ constructor(private FunctionalityService: FunctionalityService, private ProjectS
   deleteFunc(lsKeyName:any)
   {
     this.FunctionalityService.deleteFunctionality(lsKeyName);
+    //
+    this.TaskService.DeleteAllTaskForFunc(lsKeyName);
   }
 
  
